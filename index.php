@@ -9,19 +9,6 @@
 
 <body>
 
-	<?php
-
-		include ("Connexion.php");
-	    include ("Joueur.php");
-
-	    $num = 2;
-
-	    $j = new Joueur($num);
-	    $j->getNomJoueur();
-
-
-	?>
-
 	<table>
 		<thead>
 			<tr>
@@ -52,6 +39,21 @@
 			</tr>
 		</tbody>
 	</table>
+
+	<?php
+
+		include ("Connexion.php");
+	    include ("Joueur.php");
+
+	    $num = 2;
+
+	    $j = new Joueur($num);
+	    $j->getNomJoueur();
+
+
+	?>
+
+	
 
 
 </body>

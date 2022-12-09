@@ -15,7 +15,6 @@
 		        $selectNom->execute(array($this->num_license));
 		        $nom = $selectNom->fetch();
 		        echo $nom;
-		        echo "connx ok";
 	    	} catch(Exception $e) {
 		        echo"erreur";
 		        die('Erreur:'.$e->getMessage());
