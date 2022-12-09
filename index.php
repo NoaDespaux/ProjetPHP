@@ -12,10 +12,11 @@
 	<table>
 		<thead>
 			<tr>
-				<th>Player Name</th>
-				<th>Position</th>
-				<th>Height (cm)</th>
-				<th>Weight (kg)</th>
+				<th>Nom</th>
+				<th>Prenom</th>
+				<th>Date de naissance</th>
+				<th>Poste préféré</th>
+				<th>Statut</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -50,6 +51,37 @@
 	    $j = new Joueur($num);
 	    $j->getNomJoueur();
 
+		echo "<table>
+				<thead>
+					<tr>
+						<th>Nom</th>
+						<th>Prenom</th>
+						<th>Date de naissance</th>
+						<th>Poste préféré</th>
+						<th>Statut</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Tommy Smith</td>
+						<td>Goalkeeper</td>
+						<td>195</td>
+						<td>92</td>
+					</tr>
+					<tr>
+						<td>John Doe</td>
+						<td>Right Wing</td>
+						<td>182</td>
+						<td>78</td>
+					</tr>
+					<tr>
+						<td>Jane Doe</td>
+						<td>Left Wing</td>
+						<td>176</td>
+						<td>65</td>
+					</tr>
+				</tbody>
+			</table>";
 
 	?>
 
