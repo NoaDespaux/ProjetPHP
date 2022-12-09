@@ -14,7 +14,6 @@
 				$selectNom = $bdd->linkpdo->prepare('SELECT nom from joueur WHERE num_license = ?');
 		        $selectNom->execute(array($this->num_license));
 		        $nom = $selectNom->fetch();
-		        echo $nom;
 	    	} catch(Exception $e) {
 		        echo"erreur";
 		        die('Erreur:'.$e->getMessage());
@@ -22,5 +21,18 @@
 	    	return $nom;
 		}
 
-	}
+		public static function getListeJoueurs(){
+			try{
+				$bdd = new BDD();
+				$selectListe = $bdd->linkpdo->prepare('SELECT nom, prenom, date_naissance, poste_prefere, statut from joueur');
+				$selectListe->execute();
+		        $liste = $selectListe->fetch();
+	    	} catch(Exception $e) {
+		        echo"erreur";
+		        die('Erreur:'.$e->getMessage());
+	    	}
+	    	return $liste;
+		}
 
+	}
+?>

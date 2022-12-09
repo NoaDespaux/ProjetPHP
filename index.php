@@ -9,38 +9,6 @@
 
 <body>
 
-	<table>
-		<thead>
-			<tr>
-				<th>Nom</th>
-				<th>Prenom</th>
-				<th>Date de naissance</th>
-				<th>Poste préféré</th>
-				<th>Statut</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>Tommy Smith</td>
-				<td>Goalkeeper</td>
-				<td>195</td>
-				<td>92</td>
-			</tr>
-			<tr>
-				<td>John Doe</td>
-				<td>Right Wing</td>
-				<td>182</td>
-				<td>78</td>
-			</tr>
-			<tr>
-				<td>Jane Doe</td>
-				<td>Left Wing</td>
-				<td>176</td>
-				<td>65</td>
-			</tr>
-		</tbody>
-	</table>
-
 	<?php
 
 		include ("Connexion.php");
@@ -50,6 +18,8 @@
 
 	    $j = new Joueur($num);
 	    $j->getNomJoueur();
+
+	    $listeJoueurs = Joueur::getListeJoueurs();
 
 		echo "<table>
 				<thead>
@@ -61,27 +31,14 @@
 						<th>Statut</th>
 					</tr>
 				</thead>
-				<tbody>
-					<tr>
-						<td>Tommy Smith</td>
-						<td>Goalkeeper</td>
-						<td>195</td>
-						<td>92</td>
-					</tr>
-					<tr>
-						<td>John Doe</td>
-						<td>Right Wing</td>
-						<td>182</td>
-						<td>78</td>
-					</tr>
-					<tr>
-						<td>Jane Doe</td>
-						<td>Left Wing</td>
-						<td>176</td>
-						<td>65</td>
-					</tr>
-				</tbody>
-			</table>";
+				<tbody>";
+					
+		for($i = 0; $i < listeJoueurs->rowCount(); $i++){
+			
+		}
+
+				/*"</tbody>
+			</table>";*/
 
 	?>
 
