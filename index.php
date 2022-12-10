@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Equipe de hand</title>
+    <title>Equipe de Handball</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -13,11 +13,6 @@
 
 		include ("Connexion.php");
 	    include ("Joueur.php");
-
-	    $num = 2;
-
-	    $j = new Joueur($num);
-	    $j->getNomJoueur();
 
 	    $listeJoueurs = Joueur::getListeJoueurs();
 
@@ -29,6 +24,8 @@
 						<th>Date de naissance</th>
 						<th>Poste préféré</th>
 						<th>Statut</th>
+						<td></td>
+						<td></td>
 					</tr>";
 
 		foreach ($listeJoueurs as $item) {
@@ -38,6 +35,8 @@
 						<td>" . $item["date_naissance"] . "</td>
 						<td>" . $item["poste_prefere"] . "</td>
 						<td>" . $item["statut"] . "</td>
+						<td class=\"modif\"><a href=\"modification.php?id=".$item['num_license']."\">Modifier</td>
+						<td class=\"modif\"><a href=\"suppression.php?id=".$item['num_license']."\">Supprimer</td>
 					</tr>";
   		}
 
