@@ -8,9 +8,7 @@
 </head>
 
 <body>
-
 	<?php
-
 		include ("Connexion.php");
 	    include ("Joueur.php");
 
@@ -40,10 +38,8 @@
 					</tr>";
   		}
 
-
 		echo 	"</thead>
 			<tbody>";
-
 	?>
 
 	
