@@ -29,16 +29,21 @@
 						<th>Date de naissance</th>
 						<th>Poste préféré</th>
 						<th>Statut</th>
-					</tr>
-				</thead>
-				<tbody>";
-					
-		for($i = 0; $i < listeJoueurs->rowCount(); $i++){
-			
-		}
+					</tr>";
 
-				/*"</tbody>
-			</table>";*/
+		foreach ($listeJoueurs as $item) {
+    		echo "<tr>
+						<td>" . $item["nom"] . "</td>
+						<td>" . $item["prenom"] . "</td>
+						<td>" . $item["date_naissance"] . "</td>
+						<td>" . $item["poste_prefere"] . "</td>
+						<td>" . $item["statut"] . "</td>
+					</tr>";
+  		}
+
+
+		echo 	"</thead>
+			<tbody>";
 
 	?>
 

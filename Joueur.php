@@ -24,9 +24,9 @@
 		public static function getListeJoueurs(){
 			try{
 				$bdd = new BDD();
-				$selectListe = $bdd->linkpdo->prepare('SELECT nom, prenom, date_naissance, poste_prefere, statut from joueur');
+				$selectListe = $bdd->linkpdo->prepare('SELECT nom, prenom, date_naissance, poste_prefere, statut from joueur ORDER BY 1, 2');
 				$selectListe->execute();
-		        $liste = $selectListe->fetch();
+		        $liste = $selectListe->fetchAll();
 	    	} catch(Exception $e) {
 		        echo"erreur";
 		        die('Erreur:'.$e->getMessage());
