@@ -22,19 +22,19 @@
 						<th>Date de naissance</th>
 						<th>Poste préféré</th>
 						<th>Statut</th>
-						<td></td>
-						<td></td>
+						<th></th>
+						<th></th>
 					</tr>";
 
 		foreach ($listeJoueurs as $item) {
     		echo "<tr>
-						<td>" . $item["nom"] . "</td>
-						<td>" . $item["prenom"] . "</td>
+						<td><a href=\"infoJoueur.php?num_license=".$item['num_license']."\">" . $item["nom"] . "</td>
+						<td><a href=\"infoJoueur.php?num_license=".$item['num_license']."\">" . $item["prenom"] . "</td>
 						<td>" . $item["date_naissance"] . "</td>
 						<td>" . $item["poste_prefere"] . "</td>
 						<td>" . $item["statut"] . "</td>
-						<td class=\"modif\"><a href=\"modification.php?id=".$item['num_license']."\">Modifier</td>
-						<td class=\"modif\"><a href=\"suppression.php?id=".$item['num_license']."\">Supprimer</td>
+						<td><a href=\"modification.php?num_license=".$item['num_license']."\">Modifier</td>
+						<td><a href=\"suppression.php?num_license=".$item['num_license']."\">Supprimer</td>
 					</tr>";
   		}
 
