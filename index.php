@@ -24,8 +24,9 @@
 						<th>Statut</th>
 						<th></th>
 						<th></th>
-					</tr>";
-
+					</tr>
+				</thead>
+				<tbody>";
 		foreach ($listeJoueurs as $item) {
     		echo "<tr>
 						<td><a href=\"infoJoueur.php?num_license=".$item['num_license']."\">" . $item["nom"] . "</td>
@@ -36,14 +37,11 @@
 						<td><a href=\"modification.php?num_license=".$item['num_license']."\">Modifier</td>
 						<td><a href=\"suppression.php?num_license=".$item['num_license']."\">Supprimer</td>
 					</tr>";
+		
   		}
-
-		echo 	"</thead>
-			<tbody>";
+		echo 	"</tbody><br>
+				 <a href=\"ajout.html\">Ajouter un joueur</a>";
 	?>
-
-	
 
 
 </body>
-
