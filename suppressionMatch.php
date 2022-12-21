@@ -12,12 +12,12 @@
         die('Erreur : ' . $e->getMessage());
     }
 
-    $num_license=$_GET['num_license'];
+    $id_match=$_GET['id_match'];
 
     try{
-        $selectReq = $linkpdo->prepare('DELETE FROM Joueur where num_license = ?');
-        $selectReq->execute(array($num_license));
-        echo "Ligne supprimée";
+        $selectReq = $linkpdo->prepare('DELETE FROM Rencontre where id_match = ?');
+        $selectReq->execute(array($id_match));
+        echo "Match supprimé";
         header('index.php');
     } catch(Exception $e) {
         echo"erreur";

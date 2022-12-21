@@ -11,7 +11,7 @@
     		$num_license=$_GET['num_license'];
     		$infos=Joueur::getInfosJoueur($num_license);
     	?>
-    	<form action="modificationAction.php?num_license=<?php echo $num_license?>" method="post">
+    	<form action="modificationJoueurAction.php?num_license=<?php echo $num_license?>" method="post">
             Nom : <input type="text" value="<?php echo $infos[0]['nom']?>" name="nom_saisi"><br />
             Prenom : <input type="text" value="<?php echo $infos[0]['prenom']?>" name="prenom_saisi"><br />
             Date de naissance : <input type="text" value="<?php echo $infos[0]['date_naissance']?>" name="date_naissance_saisie"><br />

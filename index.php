@@ -4,17 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Equipe de Handball</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styl.css">
 </head>
 
 <body>
 	<?php
 		include ("Connexion.php");
 	    include ("Joueur.php");
+	    include ("Match.php");
 
 	    $listeJoueurs = Joueur::getListeJoueurs();
 
-		echo "<table>
+		echo "<h1>Joueurs</h1>
+			<table>
 				<thead>
 					<tr>
 						<th>Nom</th>
@@ -34,14 +36,46 @@
 						<td>" . $item["date_naissance"] . "</td>
 						<td>" . $item["poste_prefere"] . "</td>
 						<td>" . $item["statut"] . "</td>
-						<td><a href=\"modification.php?num_license=".$item['num_license']."\">Modifier</td>
-						<td><a href=\"suppression.php?num_license=".$item['num_license']."\">Supprimer</td>
+						<td><a href=\"modificationJoueur.php?num_license=".$item['num_license']."\">Modifier</td>
+						<td><a href=\"suppressionJoueur.php?num_license=".$item['num_license']."\">Supprimer</td>
 					</tr>";
 		
   		}
 		echo 	"</tbody><br>
-				 <a href=\"ajout.html\">Ajouter un joueur</a>";
-	?>
+				 <div class=\"bouton\"><a href=\"ajoutJoueur.html\">Ajouter un joueur</a></div>";
 
+
+		$listeMatchs = Match::getListeMatchs();
+
+		echo "<h1>Matchs</h1>
+			<table>
+				<thead>
+					<tr>
+						<th>Date heure</th>
+						<th>Nom adverse</th>
+						<th>Lieu</th>
+						<th>Domicile</th>
+						<th>Resultat e</th>
+						<th>Resultat adv</th>
+						<th></th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>";
+		foreach ($listeMatchs as $item) {
+    		echo "<tr>
+						<td><a href=\"infoMatch.php?id_match=".$item['id_match']."\">" . $item["date_heure"] . "</td>
+						<td><a href=\"infoMatch.php?id_match=".$item['id_match']."\">" . $item["nom_adverse"] . "</td>
+						<td>" . $item["lieu"] . "</td>
+						<td>" . $item["domicile"] . "</td>
+						<td>" . $item["resultat_equipe"] . "</td>
+						<td>" . $item["resultat_adv"] . "</td>
+						<td><a href=\"modificationMatch.php?id_match=".$item['id_match']."\">Modifier</td>
+						<td><a href=\"suppressionMatch.php?id_match=".$item['id_match']."\">Supprimer</td>
+					</tr>";
+  		}
+		echo 	"</tbody><br>
+				 <div class=\"bouton\"><a href=\"ajoutMatch.html\">Ajouter un match</a></div>";
+	?>
 
 </body>
