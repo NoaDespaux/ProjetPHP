@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Equipe de Handball</title>
-    <link rel="stylesheet" href="styl.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -51,12 +51,12 @@
 			<table>
 				<thead>
 					<tr>
-						<th>Date heure</th>
-						<th>Nom adverse</th>
+						<th>Date - Heure</th>
+						<th>Equipe Adverse</th>
 						<th>Lieu</th>
 						<th>Domicile</th>
-						<th>Resultat e</th>
-						<th>Resultat adv</th>
+						<th>Resultat France</th>
+						<th>Resultat Adverse</th>
 						<th></th>
 						<th></th>
 					</tr>
@@ -67,8 +67,10 @@
 						<td><a href=\"infoMatch.php?id_match=".$item['id_match']."\">" . $item["date_heure"] . "</td>
 						<td><a href=\"infoMatch.php?id_match=".$item['id_match']."\">" . $item["nom_adverse"] . "</td>
 						<td>" . $item["lieu"] . "</td>
-						<td>" . $item["domicile"] . "</td>
-						<td>" . $item["resultat_equipe"] . "</td>
+						<td>";
+						 if ($item["domicile"] == 0){echo "Non</td>";}
+						 else {echo "Oui</td>";}
+				  echo "<td>" . $item["resultat_equipe"] . "</td>
 						<td>" . $item["resultat_adv"] . "</td>
 						<td><a href=\"modificationMatch.php?id_match=".$item['id_match']."\">Modifier</td>
 						<td><a href=\"suppressionMatch.php?id_match=".$item['id_match']."\">Supprimer</td>
