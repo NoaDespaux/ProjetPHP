@@ -59,6 +59,7 @@
 						<th>Resultat Adverse</th>
 						<th></th>
 						<th></th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>";
@@ -72,6 +73,7 @@
 						 else {echo "Oui</td>";}
 				  echo "<td>" . $item["resultat_equipe"] . "</td>
 						<td>" . $item["resultat_adv"] . "</td>
+						<td><a href=\"feuilleDeMatch.php?id_match=".$item['id_match']."\">Feuille de Match</td>
 						<td><a href=\"modificationMatch.php?id_match=".$item['id_match']."\">Modifier</td>
 						<td><a href=\"suppressionMatch.php?id_match=".$item['id_match']."\">Supprimer</td>
 					</tr>";
