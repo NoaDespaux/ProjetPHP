@@ -10,7 +10,7 @@
 
 			try{
 		        $bdd = new BDD();
-		        $req = $bdd->linkpdo->prepare('INSERT INTO participer(num_license, id_match) VALUES(?, ?)');
+		        $req = $bdd->linkpdo->prepare('INSERT INTO participer(num_license, titulaire, id_match) VALUES(?, 1, ?)');
 		        $req->execute(array($num_license, $id_match));
 	    	}
 	   		catch(Exception $e){
