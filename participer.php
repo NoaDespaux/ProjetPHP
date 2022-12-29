@@ -1,11 +1,13 @@
 <?php
 
-	class Joueur{
+	class Participer{
 
 		private $num_license;
+		private $id_match;
 
-		public function __construct($num_license){
+		public function __construct($num_license, $id_match){
 			$this->num_license = $num_license;
+			$this->id_match = $id_match;
 		}
 
 		public static function getInfosJoueur($num_license){
@@ -21,10 +23,23 @@
 	    	return $nom;
 		}
 
-		public static function getListeJoueurs(){
+		public static function getListeJoueursFromMatch($id_match){
 			try{
 				$bdd = new BDD();
-				$selectListe = $bdd->linkpdo->prepare('SELECT num_license, nom, prenom, date_naissance, taille, poids, poste_prefere, photo, statut from joueur ORDER BY 2, 3');
+				$selectListe = $bdd->linkpdo->prepare('SELECT num_license from participer WHERE id_match = ?');
+				$selectListe->execute(array($id_match));
+		        $liste = $selectListe->fetchAll();
+	    	} catch(Exception $e) {
+		        echo"erreur";
+		        die('Erreur:'.$e->getMessage());
+	    	}
+	    	return $liste;
+		}
+
+		public static function getListeMatchs(){
+			try{
+				$bdd = new BDD();
+				$selectListe = $bdd->linkpdo->prepare('SELECT id_match, date_heure, nom_adverse, lieu, domicile, resultat_equipe, resultat_adv from rencontre');
 				$selectListe->execute();
 		        $liste = $selectListe->fetchAll();
 	    	} catch(Exception $e) {
