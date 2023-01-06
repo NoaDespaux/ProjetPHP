@@ -8,78 +8,84 @@
 </head>
 
 <body>
+	<div class="bouton"><a href="deconnexion.php">Se déconnecter</a></div>
 	<?php
-		include ("Connexion.php");
-	    include ("Joueur.php");
-	    include ("Match.php");
+		if($_COOKIE['logged_in'] == true){
+			include ("Connexion.php");
+		    include ("Joueur.php");
+		    include ("Match.php");
 
-	    $listeJoueurs = Joueur::getListeJoueurs();
+		    $listeJoueurs = Joueur::getListeJoueurs();
 
-		echo "<h1>Joueurs</h1>
-			<table>
-				<thead>
-					<tr>
-						<th>Nom</th>
-						<th>Prenom</th>
-						<th>Date de naissance</th>
-						<th>Poste préféré</th>
-						<th>Statut</th>
-						<th></th>
-						<th></th>
-					</tr>
-				</thead>
-				<tbody>";
-		foreach ($listeJoueurs as $item) {
-    		echo "<tr>
-						<td><a href=\"infoJoueur.php?num_license=".$item['num_license']."\">" . $item["nom"] . "</td>
-						<td><a href=\"infoJoueur.php?num_license=".$item['num_license']."\">" . $item["prenom"] . "</td>
-						<td>" . $item["date_naissance"] . "</td>
-						<td>" . $item["poste_prefere"] . "</td>
-						<td>" . $item["statut"] . "</td>
-						<td><a href=\"modificationJoueur.php?num_license=".$item['num_license']."\">Modifier</td>
-						<td><a href=\"suppressionJoueur.php?num_license=".$item['num_license']."\">Supprimer</td>
-					</tr>";
-		
-  		}
-		echo 	"</tbody><br>
-				 <div class=\"bouton\"><a href=\"ajoutJoueur.html\">Ajouter un joueur</a></div>";
+			echo "<h1>Joueurs</h1>
+				<table>
+					<thead>
+						<tr>
+							<th>Nom Prénom</th>
+							<th>Date de naissance</th>
+							<th>Poste préféré</th>
+							<th>Statut</th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>";
+			foreach ($listeJoueurs as $item) {
+	    		echo "<tr>
+							<td><a href=\"infoJoueur.php?num_license=".$item['num_license']."\">" . $item["nom"] . "  " . $item["prenom"] . "</td>
+							<td>" . $item["date_naissance"] . "</td>
+							<td>" . $item["poste_prefere"] . "</td>
+							<td>" . $item["statut"] . "</td>
+							<td><a href=\"modificationJoueur.php?num_license=".$item['num_license']."\">Modifier</td>
+							<td><a href=\"suppressionJoueur.php?num_license=".$item['num_license']."\">Supprimer</td>
+						</tr>";
+			
+	  		}
+			echo 	"</tbody>
+					</table><br>
+					 <div class=\"bouton\"><a href=\"ajoutJoueur.html\">Ajouter un joueur</a></div>";
 
 
-		$listeMatchs = Match::getListeMatchs();
+			$listeMatchs = Match::getListeMatchs();
 
-		echo "<h1>Matchs</h1>
-			<table>
-				<thead>
-					<tr>
-						<th>Date - Heure</th>
-						<th>Equipe Adverse</th>
-						<th>Lieu</th>
-						<th>Domicile</th>
-						<th>Resultat France</th>
-						<th>Resultat Adverse</th>
-						<th></th>
-						<th></th>
-						<th></th>
-					</tr>
-				</thead>
-				<tbody>";
-		foreach ($listeMatchs as $item) {
-    		echo "<tr>
-						<td><a href=\"infoMatch.php?id_match=".$item['id_match']."\">" . $item["date_heure"] . "</td>
-						<td><a href=\"infoMatch.php?id_match=".$item['id_match']."\">" . $item["nom_adverse"] . "</td>
-						<td>" . $item["lieu"] . "</td>
-						<td>";
-						 if ($item["domicile"] == 0){echo "Non</td>";}
-						 else {echo "Oui</td>";}
-				  echo "<td>" . $item["resultat_equipe"] . "</td>
-						<td>" . $item["resultat_adv"] . "</td>
-						<td><a href=\"feuilleDeMatch.php?id_match=".$item['id_match']."\">Feuille de Match</td>
-						<td><a href=\"modificationMatch.php?id_match=".$item['id_match']."\">Modifier</td>
-						<td><a href=\"suppressionMatch.php?id_match=".$item['id_match']."\">Supprimer</td>
-					</tr>";
-  		}
-		echo 	"</tbody><br>
-				 <div class=\"bouton\"><a href=\"ajoutMatch.html\">Ajouter un match</a></div>";
+			echo "<h1>Matchs</h1>
+				<table>
+					<thead>
+						<tr>
+							<th>Date - Heure</th>
+							<th>Equipe Adverse</th>
+							<th>Lieu</th>
+							<th>Domicile</th>
+							<th>Resultat France</th>
+							<th>Resultat Adverse</th>
+							<th></th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>";
+			foreach ($listeMatchs as $item) {
+	    		echo "<tr>
+							<td><a href=\"infoMatch.php?id_match=".$item['id_match']."\">" . $item["date_heure"] . "</td>
+							<td><a href=\"infoMatch.php?id_match=".$item['id_match']."\">" . $item["nom_adverse"] . "</td>
+							<td>" . $item["lieu"] . "</td>
+							<td>";
+							 if ($item["domicile"] == 0){echo "Non</td>";}
+							 else {echo "Oui</td>";}
+					  echo "<td>" . $item["resultat_equipe"] . "</td>
+							<td>" . $item["resultat_adv"] . "</td>
+							<td><a href=\"feuilleDeMatch.php?id_match=".$item['id_match']."\">Feuille de Match</td>
+							<td><a href=\"modificationMatch.php?id_match=".$item['id_match']."\">Modifier</td>
+							<td><a href=\"suppressionMatch.php?id_match=".$item['id_match']."\">Supprimer</td>
+						</tr>";
+	  		}
+			echo 	"</tbody><br>
+					</table>
+					 <div class=\"bouton\"><a href=\"ajoutMatch.html\">Ajouter un match</a></div>";
+		} else {
+			header("Location: pageConnexion.php");
+		}
+
 	?>
 
 </body>

@@ -5,11 +5,16 @@
     </head>
     <body>
     	<?php
-    		include ("Joueur.php");
-			include ("Connexion.php");
+            if($_COOKIE['logged_in'] == true){
+                include ("Joueur.php");
+                include ("Connexion.php");
 
-    		$num_license=$_GET['num_license'];
-    		$infos=Joueur::getInfosJoueur($num_license);
+                $num_license=$_GET['num_license'];
+                $infos=Joueur::getInfosJoueur($num_license);
+            } else {
+                header("Location: pageConnexion.php");
+            }
+
     	?>
     	<form action="modificationJoueurAction.php?num_license=<?php echo $num_license?>" method="post">
             Nom : <input type="text" value="<?php echo $infos[0]['nom']?>" name="nom_saisi"><br />

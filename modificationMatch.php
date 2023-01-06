@@ -5,11 +5,15 @@
     </head>
     <body>
     	<?php
-    		include ("Match.php");
-			include ("Connexion.php");
+            if($_COOKIE['logged_in'] == true){
+                include ("Match.php");
+                include ("Connexion.php");
 
-    		$id_match=$_GET['id_match'];
-    		$infos=Match::getInfosMatch($id_match);
+                $id_match=$_GET['id_match'];
+                $infos=Match::getInfosMatch($id_match);
+            }else{
+                header("Location: pageConnexion.php");
+            }
     	?>
     	<form action="modificationMatchAction.php?id_match=<?php echo $id_match?>" method="post">
             date_heure : <input type="text" value="<?php echo $infos[0]['date_heure']?>" name="date_heure_saisie"><br />
