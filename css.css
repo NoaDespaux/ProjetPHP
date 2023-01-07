@@ -23,8 +23,9 @@ table.menu {
   border-color: inherit;
 }
 
-.btndeco {
+.btnmenu {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-between;
+  color: white;
 }
