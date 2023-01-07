@@ -10,20 +10,9 @@
         $statut=$_POST['statut_saisi'];
         $num_license=$_GET['num_license'];
 
-        try {
-            $server = 'localhost';
-            $db = 'bd_php_hand';
-            $login = 'root';
-            $mdp = '';
-
-            $linkpdo = new PDO("mysql:host=$server;dbname=$db", $login, $mdp);
-        }
-        catch (Exception $e) {
-            die('Erreur : ' . $e->getMessage());
-        }
-
         try{
-            $req = $linkpdo->prepare('UPDATE Joueur SET nom = ?, prenom = ?, date_naissance = ?, taille = ?, poids = ?, poste_prefere = ?, statut = ? WHERE num_license = ?');
+            $bdd = new BDD();
+            $req = $bdd->linkpdo->prepare('UPDATE Joueur SET nom = ?, prenom = ?, date_naissance = ?, taille = ?, poids = ?, poste_prefere = ?, statut = ? WHERE num_license = ?');
             $req->execute(array($nom,$prenom, $date_naissance, $taille, $poids, $poste, $statut, $num_license));
             echo 'Le joueur a bien été modifié !';
             //sleep(3);

@@ -9,20 +9,9 @@
         $resultat_adv=$_POST['resultat_adverse_saisi'];
         $id_match=$_GET['id_match'];
 
-        try {
-            $server = 'localhost';
-            $db = 'bd_php_hand';
-            $login = 'root';
-            $mdp = '';
-
-            $linkpdo = new PDO("mysql:host=$server;dbname=$db", $login, $mdp);
-        }
-        catch (Exception $e) {
-            die('Erreur : ' . $e->getMessage());
-        }
-
         try{
-            $req = $linkpdo->prepare('UPDATE Rencontre SET date_heure = ?, nom_adverse = ?, lieu = ?, domicile = ?, resultat_equipe = ?, resultat_adv = ? WHERE id_match = ?');
+            $bdd = new BDD();
+            $req = $bdd->linkpdo->prepare('UPDATE Rencontre SET date_heure = ?, nom_adverse = ?, lieu = ?, domicile = ?, resultat_equipe = ?, resultat_adv = ? WHERE id_match = ?');
             $req->execute(array($date_heure, $nom_adverse, $lieu, $domicile, $resultat_equipe, $resultat_adv, $id_match));
             echo 'Le match a bien été modifié !';
             //sleep(3);
