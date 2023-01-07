@@ -7,8 +7,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
+<header>
+	<table class="menu">
+  		<tr>
+    		<th><a class="btnmenu" href="index.php">Accueil</a></th>
+    		<th><a class="btnmenu" id ="btndeco" href="deconnexion.php">Déconnexion</a></th>
+  		</tr>
+	</table>
+</header>
+
 <body>
-	<div class="bouton"><a href="deconnexion.php">Se déconnecter</a></div>
 	<?php
 		if($_COOKIE['logged_in'] == true){
 			include ("Connexion.php");

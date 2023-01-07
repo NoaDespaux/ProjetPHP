@@ -1,5 +1,8 @@
 <?php
     if($_COOKIE['logged_in'] == true){
+
+        include("Connexion.php");
+
         $nom=$_POST['nom_saisi'];
         $prenom=$_POST['prenom_saisi'];
         $date_naissance=$_POST['date_naissance_saisie'];
@@ -11,7 +14,7 @@
 
         try{
             $bdd = new BDD();
-            $req = BDD->linkpdo->prepare('INSERT INTO joueur(num_license,nom,prenom,date_naissance,taille,poids,poste_prefere, statut) VALUES(?, ?, ?, ?, ?, ?, ?, ?)');
+            $req = $bdd->linkpdo->prepare('INSERT INTO joueur(num_license,nom,prenom,date_naissance,taille,poids,poste_prefere, statut) VALUES(?, ?, ?, ?, ?, ?, ?, ?)');
             $req->execute(array($num_license,$nom,$prenom, $date_naissance, $taille, $poids, $poste, $statut));
             echo"Joueur ajouté !";
             header("Location: index.php");
