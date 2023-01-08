@@ -19,7 +19,7 @@
 		    	}
 			}
 			
-			header("Location: index.php");
+			header("Location: feuilleDeMatch.php?id_match=".$id_match);
 
 		} else {
 			echo "Un match de handball se joue au minimum à 7 joueurs";

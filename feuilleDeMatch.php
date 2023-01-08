@@ -25,6 +25,7 @@
 		    include ("Participer.php");
 
 		    $id_match=$_GET['id_match'];
+		    $infosMatch=Match::getInfosMatch($id_match);
 		    $listeJoueurs = Joueur::getListeJoueurs();
 		    $listeInscrits = Participer::getListeJoueursFromMatch($id_match);
 
@@ -43,6 +44,7 @@
 								<th>Poids</th>
 								<th>Poste préféré</th>
 								<th></th>
+								<th>Commentaire</th>
 							</tr>
 						</thead>
 						<tbody>";
@@ -55,7 +57,20 @@
 							<td>" . $item[0]["poids"] . "kg</td>
 							<td>" . $item[0]["poste_prefere"] . "</td>
 							<td> <img src=".$item[0]["photo"]."></td>
+							<td><a href=commentaire.php?id_match=".$id_match."?num_license=".$inscrit["num_license"]."\" method=\"post\">Ajouter un commentaire</td>
 						</tr>";
+				}
+				echo "</tbody>
+					</table>";
+
+				if($infosMatch[0]['resultat_equipe'] == null){
+					echo "<h1>Renseignez le score :</h1>
+					<form action=\"score.php?id_match=".$id_match."\" method=\"post\">
+						<input type=\"text\" name=\"score_france\" placeholder=\"Score de la France\">
+						<input type=\"text\" name=\"score_adv\" placeholder=\"Score de l'équipe adverse\"><br>
+						<input type=\"reset\" name=\"annuler\" value=\"Annuler\">
+			            <input type=\"submit\" name=\"valider\" value=\"Valider\">
+					</form>";
 				}
 			} else {
 				echo "<h1>Joueurs à inscrire au match n°".$id_match."</h1>";
