@@ -18,23 +18,9 @@
 
 <body>
 
-	<input type="textarea">
-	   <nom>comment</nom>
-	   <libellé>Votre commentaire</libellé>
-	   <taille>2,40</taille>
-	</input>
-
-	<input type="textarea">
-	   <nom>comment</nom>
-	   <libellé>Votre commentaire</libellé>
-	   <taille>4,64</taille>
-	</input>
-
-	<input type="textarea">
-	   <nom>comment</nom>
-	   <libellé>Votre commentaire</libellé>
-	   <taille>8,100</taille>
-	</input>
+	Commentaire :
+	<input type="textarea" name="commentaire" placeholder="Entrez votre commentaire">
+	
 <?php 
 
 	include("Connexion.php");
