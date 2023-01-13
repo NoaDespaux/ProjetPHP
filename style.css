@@ -1,23 +1,28 @@
 table {
-	width: 100%;
-	border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
 }
 
 th,
 td {
-	text-align: left;
-	padding: 8px;
+  text-align: left;
+  padding: 8px;
 }
 
 tr:nth-child(even) {
-	background-color: #f2f2f2;
+  background-color: #f2f2f2;
 }
 
 th {
-	background-color: #4caf50;
-	color: white;
+  background-color: #4caf50;
+  color: white;
 }
 
 .btnmenu {
-	color: white;
+  color: white;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
