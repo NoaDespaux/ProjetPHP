@@ -10,6 +10,19 @@
 			$this->id_match = $id_match;
 		}
 
+		public static function getInfosParticiper($num_license, $id_match){
+			try{
+				$bdd = new BDD();
+				$selectInfos = $bdd->linkpdo->prepare("SELECT commentaire, titulaire, poste_occupe FROM participer WHERE num_license = ? AND id_match = ?");
+		        $selectInfos->execute(array($num_license, $id_match));
+		        $infos = $selectInfos->fetchAll();
+	    	} catch(Exception $e) {
+		        echo"erreur";
+		        die('Erreur:'.$e->getMessage());
+	    	}
+	    	return $infos;
+		}
+
 		public static function getInfosJoueur($num_license){
 			try{
 				$bdd = new BDD();

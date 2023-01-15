@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Feuille de Match</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <header>
@@ -29,10 +29,10 @@
 		    $listeJoueurs = Joueur::getListeJoueurs();
 		    $listeInscrits = Participer::getListeJoueursFromMatch($id_match);
 
-
 			if(!empty($listeInscrits)){
 				echo "<h1>Joueurs participant au match n°".$id_match."</h1>";
 				$infos=[];
+				$infosParticiper=[];
 				foreach($listeInscrits as $inscrit){
 					array_push($infos, Joueur::getInfosJoueur($inscrit['num_license']));
 				}
@@ -49,6 +49,10 @@
 						</thead>
 						<tbody>";
 				foreach ($infos as $item) {
+					print "<pre>";
+					print_r($infos);
+					print "</pre>";
+					$infosParticiper = Participer::getInfosParticiper($inscrit["num_license"], $id_match);
 	    			echo "	
 						<tr>
 							<td>" . $item[0]["nom"] . "</td>
@@ -57,8 +61,14 @@
 							<td>" . $item[0]["poids"] . "kg</td>
 							<td>" . $item[0]["poste_prefere"] . "</td>
 							<td> <img src=".$item[0]["photo"]."></td>
-							<td><a href=commentaire.php?id_match=".$id_match."?num_license=".$inscrit["num_license"]."\" method=\"post\">Ajouter un commentaire</td>
-						</tr>";
+							<td>";
+							if($infosParticiper[0]['commentaire'] == null){
+								print "<pre>";
+								print_r($infosParticiper);
+								print "</pre>";
+								echo "<a href=commentaire.php?id_match=".$id_match."&num_license=".$inscrit["num_license"]."\" method=\"post\">Ajouter un commentaire";
+							}
+						echo "</td></tr>";
 				}
 				echo "</tbody>
 					</table>";

@@ -18,15 +18,10 @@
 
 <body>
 
-	<form action="commentaireAction.php" method="post">
+	<form action="commentaire.php?id_match=".$id_match."&num_license=".$inscrit["num_license"]."\" method=\"post\"" method="post">
 		Ajoutez le commentaire : <input type="text" name="commentaire">
+		<input type="reset" name="annuler" value="Annuler">
+        <input type="submit" name="valider" value="Valider">
 	</form>
 
-<?php 
-
-	include("Connexion.php");
-	include("Participer.php");
-
-
-
-?>
+</body>
