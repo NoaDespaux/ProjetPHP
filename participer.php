@@ -13,7 +13,7 @@
 		public static function getInfosParticiper($num_license, $id_match){
 			try{
 				$bdd = new BDD();
-				$selectInfos = $bdd->linkpdo->prepare("SELECT commentaire, titulaire, poste_occupe FROM participer WHERE num_license = ? AND id_match = ?");
+				$selectInfos = $bdd->linkpdo->prepare("SELECT note, commentaire, titulaire, poste_occupe FROM participer WHERE num_license = ? AND id_match = ?");
 		        $selectInfos->execute(array($num_license, $id_match));
 		        $infos = $selectInfos->fetchAll();
 	    	} catch(Exception $e) {

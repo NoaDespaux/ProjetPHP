@@ -15,7 +15,7 @@
 		$bdd = new BDD();
 		$req = $bdd->linkpdo->prepare('UPDATE participer SET commentaire = ? WHERE id_match = ? AND num_license = ?');
 		$req->execute(array($commentaire, $id_match, $num_license));
-		header("Location: feuilleDeMatch.php?id_match=".$id_match);
+		//header("Location: feuilleDeMatch.php?id_match=".$id_match);
 	} else {
 		header("Location: pageConnexion.php");
 	}

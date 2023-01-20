@@ -44,9 +44,12 @@
 								<th>Poids</th>
 								<th>Poste préféré</th>
 								<th></th>
-								<th>Commentaire</th>
-								<th></th>
-							</tr>
+								<th>Commentaire</th>";
+								if($infosMatch[0]['resultat_equipe'] != null){
+									echo "<th>Note</th>
+										<th></th>";
+								}
+							echo "</tr>
 						</thead>
 						<tbody>";
 				foreach ($infos as $item) {
@@ -61,13 +64,21 @@
 							<td> <img src=".$item[0]["photo"]."></td>
 							<td>";
 							if($infosParticiper[0]['commentaire'] == null){
-								echo "<a href=commentaire.php?id_match=".$id_match."&num_license=".$item[0]["num_license"]."\" method=\"post\">Ajouter un commentaire";
+								echo "<a href=commentaire.php?id_match=".$id_match."&num_license=".$item[0]["num_license"]."\" method=\"post\">Ajouter un commentaire</td>";
 							} else {
 								echo $infosParticiper[0]['commentaire'];
-								echo "<td><a href=commentaire.php?id_match=".$id_match."&num_license=".$item[0]["num_license"]."\" method=\"post\">Modifier le commentaire</td>";
 							}
-						echo "</td>
-							  <td></td>
+							if($infosMatch[0]['resultat_equipe'] != null){	
+								if($infosParticiper[0]['note'] == null){
+									echo "<td><form action=\"ajoutNote.php?id_match=". $id_match."&num_license=". $item[0]["num_license"]." \"method=\"post\">
+									Ajoutez la note : <br><input type=\"text\" name=\"note\"><input type=\"submit\" name=\"valider\" value=\"OK\">
+									</form></td>
+									<td></td>";
+								} else {
+								echo "<td>" . $infosParticiper[0]['note'] . "</td>";
+								}
+							}
+						echo "
 						</tr>";
 				}
 				echo "</tbody>
