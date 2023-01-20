@@ -11,7 +11,7 @@
 		public static function getInfosJoueur($num_license){
 			try{
 				$bdd = new BDD();
-				$selectInfos = $bdd->linkpdo->prepare("SELECT nom, prenom, photo, date_naissance, taille, poids, poste_prefere, statut from joueur WHERE num_license = ?");
+				$selectInfos = $bdd->linkpdo->prepare("SELECT num_license,nom, prenom, photo, date_naissance, taille, poids, poste_prefere, statut from joueur WHERE num_license = ?");
 		        $selectInfos->execute(array($num_license));
 		        $nom = $selectInfos->fetchAll();
 	    	} catch(Exception $e) {

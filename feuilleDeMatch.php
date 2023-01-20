@@ -45,14 +45,12 @@
 								<th>Poste préféré</th>
 								<th></th>
 								<th>Commentaire</th>
+								<th></th>
 							</tr>
 						</thead>
 						<tbody>";
 				foreach ($infos as $item) {
-					print "<pre>";
-					print_r($infos);
-					print "</pre>";
-					$infosParticiper = Participer::getInfosParticiper($inscrit["num_license"], $id_match);
+					$infosParticiper = Participer::getInfosParticiper($item[0]["num_license"], $id_match);
 	    			echo "	
 						<tr>
 							<td>" . $item[0]["nom"] . "</td>
@@ -63,12 +61,14 @@
 							<td> <img src=".$item[0]["photo"]."></td>
 							<td>";
 							if($infosParticiper[0]['commentaire'] == null){
-								print "<pre>";
-								print_r($infosParticiper);
-								print "</pre>";
-								echo "<a href=commentaire.php?id_match=".$id_match."&num_license=".$inscrit["num_license"]."\" method=\"post\">Ajouter un commentaire";
+								echo "<a href=commentaire.php?id_match=".$id_match."&num_license=".$item[0]["num_license"]."\" method=\"post\">Ajouter un commentaire";
+							} else {
+								echo $infosParticiper[0]['commentaire'];
+								echo "<td><a href=commentaire.php?id_match=".$id_match."&num_license=".$item[0]["num_license"]."\" method=\"post\">Modifier le commentaire</td>";
 							}
-						echo "</td></tr>";
+						echo "</td>
+							  <td></td>
+						</tr>";
 				}
 				echo "</tbody>
 					</table>";
