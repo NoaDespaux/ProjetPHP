@@ -1,3 +1,11 @@
+<?php
+
+	if(!($_COOKIE['logged_in'] == true)){
+		header("Location: pageConnexion.php");
+	}
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -18,7 +26,7 @@
 
 <body>
 	<?php
-		if($_COOKIE['logged_in'] == true){
+		
 			include ("Connexion.php");
 		    include ("Joueur.php");
 		    include ("Match.php");
@@ -90,10 +98,6 @@
 			echo 	"</tbody><br>
 					</table>
 					 <div class=\"bouton\"><a href=\"ajoutMatch.html\">Ajouter un match</a></div>";
-		} else {
-			header("Location: pageConnexion.php");
-		}
 
 	?>
-
 </body>
