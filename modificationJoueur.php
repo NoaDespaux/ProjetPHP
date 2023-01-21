@@ -19,7 +19,7 @@
     	<?php
             if($_COOKIE['logged_in'] == true){
                 include ("Joueur.php");
-                include ("Connexion.php");
+                include ("bd/Connexion.php");
 
                 $num_license=$_GET['num_license'];
                 $infos=Joueur::getInfosJoueur($num_license);

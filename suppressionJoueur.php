@@ -1,7 +1,7 @@
 <?php
 
     if($_COOKIE['logged_in'] == true) {
-        include("Connexion.php");
+        include("bd/Connexion.php");
 
         $num_license=$_GET['num_license'];
 

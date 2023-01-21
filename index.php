@@ -27,7 +27,7 @@
 <body>
 	<?php
 		
-			include ("Connexion.php");
+			include ("bd/Connexion.php");
 		    include ("Joueur.php");
 		    include ("Rencontre.php");
 

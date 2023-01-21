@@ -1,5 +1,5 @@
 <?php
-    include("Connexion.php");
+    include("bd/Connexion.php");
 
     if($_COOKIE['logged_in'] == true){
         $date_heure=$_POST['date_heure_saisie'];

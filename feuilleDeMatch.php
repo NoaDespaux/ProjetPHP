@@ -19,7 +19,7 @@
 <body>
 	<?php 
 		if($_COOKIE['logged_in'] == true){
-			include ("Connexion.php");
+			include ("bd/Connexion.php");
 		    include ("Joueur.php");
 		    include ("Rencontre.php");
 		    include ("Participer.php");

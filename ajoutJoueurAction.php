@@ -1,7 +1,7 @@
 <?php
     if($_COOKIE['logged_in'] == true){
 
-        include("Connexion.php");
+        include("bd/Connexion.php");
 
         $nom=$_POST['nom_saisi'];
         $prenom=$_POST['prenom_saisi'];

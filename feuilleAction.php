@@ -1,6 +1,6 @@
 <?php
 	if($_COOKIE['logged_in'] == true){
-		include ("Connexion.php");
+		include ("bd/Connexion.php");
 
 		$liste_titulaires=$_POST['liste_titulaires'];
 		$id_match=$_GET['id_match'];

@@ -1,7 +1,7 @@
 <?php
     if($_COOKIE['logged_in'] == true){
 
-        include("Connexion.php");
+        include("bd/Connexion.php");
 
         $date_heure=$_POST['date_heure_saisie'];
         $nom_adverse=$_POST['nom_adverse_saisi'];

@@ -20,7 +20,7 @@
     	<?php
             if($_COOKIE['logged_in'] == true){
                 include ("Rencontre.php");
-                include ("Connexion.php");
+                include ("bd/Connexion.php");
 
                 $id_match=$_GET['id_match'];
                 $infos=Rencontre::getInfosMatch($id_match);
