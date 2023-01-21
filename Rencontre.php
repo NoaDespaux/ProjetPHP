@@ -1,6 +1,6 @@
 <?php
 
-	class Match{
+	class Rencontre{
 
 		private $id_match;
 

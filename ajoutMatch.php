@@ -1,26 +1,39 @@
 <?php
-    if($_COOKIE['logged_in'] == true){
 
-        include("Connexion.php");
-
-        $date_heure=$_POST['date_heure_saisie'];
-        $nom_adverse=$_POST['nom_adverse_saisi'];
-        $lieu=$_POST['lieu_saisi'];
-        $domicile=$_POST['domicile_saisi'];
-        
-        try{
-            $bdd = new BDD();
-            $req = $bdd->linkpdo->prepare('INSERT INTO rencontre(date_heure, nom_adverse, lieu, domicile) VALUES(?, ?, ?, ?)');
-            $req->execute(array($date_heure, $nom_adverse, $lieu, $domicile));
-            echo"Match ajouté !";
-            header("Location: index.php");
-        }
-        catch(Exception $e){
-            echo"erreur";
-            die('Erreur:'.$e->getMessage());
-        }  
-    } else {
+    if(!($_COOKIE['logged_in'] == true)){
         header("Location: pageConnexion.php");
     }
 
-?>  
+?>
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ajouter un match</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<header>
+    <table class="menu">
+        <tr>
+            <th><a class="btnmenu" href="index.php">Accueil</a></th>
+            <th><a class="btnmenu" id ="btndeco" href="deconnexion.php">Déconnexion</a></th>
+        </tr>
+    </table>
+</header>
+
+        <body>
+
+        <form action="ajoutMatchAction.php" method="post">
+            date_heure : <input type="text" name="date_heure_saisie"><br />
+            nom_adverse : <input type="text" name="nom_adverse_saisi"><br />
+            lieu : <input type="text" name="lieu_saisi"><br />
+            domicile : <input type="text" name="domicile_saisi"><br />
+            <input type="reset" name="annuler" value="Annuler">
+            <input type="submit" name="valider" value="Valider">
+        </form>
+
+        </body>
+    </html>

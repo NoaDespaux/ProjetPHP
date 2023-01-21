@@ -29,7 +29,7 @@
 		
 			include ("Connexion.php");
 		    include ("Joueur.php");
-		    include ("Match.php");
+		    include ("Rencontre.php");
 
 		    $listeJoueurs = Joueur::getListeJoueurs();
 
@@ -59,10 +59,10 @@
 	  		}
 			echo 	"</tbody>
 					</table><br>
-					 <div class=\"bouton\"><a href=\"ajoutJoueur.html\">Ajouter un joueur</a></div>";
+					 <div class=\"bouton\"><a href=\"ajoutJoueur.php\">Ajouter un joueur</a></div>";
 
 
-			$listeMatchs = Match::getListeMatchs();
+			$listeMatchs = Rencontre::getListeMatchs();
 
 			echo "<h1>Matchs</h1>
 				<table>
@@ -97,7 +97,7 @@
 	  		}
 			echo 	"</tbody><br>
 					</table>
-					 <div class=\"bouton\"><a href=\"ajoutMatch.html\">Ajouter un match</a></div>";
+					 <div class=\"bouton\"><a href=\"ajoutMatch.php\">Ajouter un match</a></div>";
 
 	?>
 </body>

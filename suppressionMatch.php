@@ -1,14 +1,15 @@
 <?php
 
-    if($_COOKIE['logged_in'] == true) {  
+    if($_COOKIE['logged_in'] == true) {
+        include("Connexion.php");
 
         $id_match=$_GET['id_match'];
 
         try{
             $bdd = new BDD();
-            $deleteReqParticiper = $bdd->linkpdo->prepare('DELETE FROM Participer where id_match = ?');
+            $deleteReqParticiper = $bdd->linkpdo->prepare('DELETE FROM participer where id_match = ?');
             $deleteReqParticiper->execute(array($id_match));
-            $deleteReqRencontre = $bdd->linkpdo->prepare('DELETE FROM Rencontre where id_match = ?');
+            $deleteReqRencontre = $bdd->linkpdo->prepare('DELETE FROM rencontre where id_match = ?');
             $deleteReqRencontre->execute(array($id_match));
             echo "Match supprimé";
             header("Location: index.php"); 

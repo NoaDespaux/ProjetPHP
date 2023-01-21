@@ -1,0 +1,7 @@
+Lien vers le site internet : https://handballdp.go.yo.fr
+
+
+Informations pour la connexion
+
+Nom d'utilisateur : root
+Mot de passe : $iutinfo

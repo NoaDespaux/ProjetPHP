@@ -1,4 +1,12 @@
 <?php
+
+	if(!($_COOKIE['logged_in'] == true)){
+		header("Location: pageConnexion.php");
+	}
+
+?>
+
+<?php
 		$username = $_POST['username'];
 		$password = $_POST['password'];
 

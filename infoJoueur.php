@@ -34,8 +34,9 @@
 			echo 'Poids : '.$infos[0]['poids'].'kg<br>';
 			echo 'Poste préféré : '.$infos[0]['poste_prefere'].'<br>';
 			echo 'Statut : '.$infos[0]['statut'].'<br>';
+			echo '<a href="stats.php?num_license='.$num_license	.'">Voir les statistiques du joueur';
 		} else {
-			header("Location: pageConnexion.php");
+			header("Location: pageConnexion.php");	
 		}
 	?>
 

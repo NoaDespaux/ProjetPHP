@@ -12,7 +12,7 @@
 
         try{
             $bdd = new BDD();
-            $req = $bdd->linkpdo->prepare('UPDATE Rencontre SET date_heure = ?, nom_adverse = ?, lieu = ?, domicile = ?, resultat_equipe = ?, resultat_adv = ? WHERE id_match = ?');
+            $req = $bdd->linkpdo->prepare('UPDATE rencontre SET date_heure = ?, nom_adverse = ?, lieu = ?, domicile = ?, resultat_equipe = ?, resultat_adv = ? WHERE id_match = ?');
             $req->execute(array($date_heure, $nom_adverse, $lieu, $domicile, $resultat_equipe, $resultat_adv, $id_match));
             echo 'Le match a bien été modifié !';
             //sleep(3);

@@ -1,3 +1,11 @@
+<?php
+
+	if(!($_COOKIE['logged_in'] == true)){
+		header("Location: pageConnexion.php");
+	}
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 

@@ -19,11 +19,11 @@
 	
 	<?php
 		if($_COOKIE['logged_in'] == true){
-		include ("Match.php");
+		include ("Rencontre.php");
 		include ("Connexion.php");
 
 		$id_match=$_GET['id_match'];
-		$infos=Match::getInfosMatch($id_match);
+		$infos=Rencontre::getInfosMatch($id_match);
 
 		echo 'date_heure : '.$infos[0]['date_heure'].'<br>';
 		echo 'nom_adverse : '.$infos[0]['nom_adverse'].'<br>';

@@ -19,11 +19,11 @@
     <body>
     	<?php
             if($_COOKIE['logged_in'] == true){
-                include ("Match.php");
+                include ("Rencontre.php");
                 include ("Connexion.php");
 
                 $id_match=$_GET['id_match'];
-                $infos=Match::getInfosMatch($id_match);
+                $infos=Rencontre::getInfosMatch($id_match);
             }else{
                 header("Location: pageConnexion.php");
             }

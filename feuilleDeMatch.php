@@ -21,11 +21,11 @@
 		if($_COOKIE['logged_in'] == true){
 			include ("Connexion.php");
 		    include ("Joueur.php");
-		    include ("Match.php");
+		    include ("Rencontre.php");
 		    include ("Participer.php");
 
 		    $id_match=$_GET['id_match'];
-		    $infosMatch=Match::getInfosMatch($id_match);
+		    $infosMatch=Rencontre::getInfosMatch($id_match);
 		    $listeJoueurs = Joueur::getListeJoueurs();
 		    $listeInscrits = Participer::getListeJoueursFromMatch($id_match);
 
@@ -56,8 +56,8 @@
 					$infosParticiper = Participer::getInfosParticiper($item[0]["num_license"], $id_match);
 	    			echo "	
 						<tr>
-							<td>" . $item[0]["nom"] . "</td>
-							<td>" . $item[0]["prenom"] . "</td>
+							<td><a href=\"infoJoueur.php?num_license=".$item[0]['num_license']."\">" . $item[0]["nom"] . "</td>
+							<td><a href=\"infoJoueur.php?num_license=".$item[0]['num_license']."\">" . $item[0]["prenom"] . "</td>
 							<td>" . $item[0]["taille"] . "cm</td>
 							<td>" . $item[0]["poids"] . "kg</td>
 							<td>" . $item[0]["poste_prefere"] . "</td>
@@ -84,7 +84,7 @@
 				echo "</tbody>
 					</table>";
 
-				if($infosMatch[0]['resultat_equipe'] == null){
+				if($infosMatch[0]['resultat_equipe'] == null || ($infosMatch[0]['resultat_equipe'] == 0 && $infosMatch[0]['resultat_adv'] == 0)){
 					echo "<h1>Renseignez le score :</h1>
 					<form action=\"score.php?id_match=".$id_match."\" method=\"post\">
 						<input type=\"text\" name=\"score_france\" placeholder=\"Score de la France\">
@@ -105,10 +105,12 @@
 								<th>Poids</th>
 								<th>Poste préféré</th>
 								<th></th>
+								<th>Statistiques</th>
 							</tr>
 						</thead>
 						<tbody>";
 				foreach ($listeJoueurs as $item) {
+					if($item['statut'] == "Actif"){
 		    		echo "<tr>
 		    					<td><input type=\"checkbox\" name=\"liste_titulaires[]\" value=\"".$item["num_license"]."\"></td>
 								<td><a href=\"infoJoueur.php?num_license=".$item['num_license']."\">" . $item["nom"] . "</td>
@@ -117,7 +119,10 @@
 								<td>" . $item["poids"] . "kg</td>
 								<td>" . $item["poste_prefere"] . "</td>
 								<td> <img src=".$item["photo"]."></td>
+								<td><a href=\"stats.php?num_license=".$item['num_license']."\">Voir les statistiques du joueur</td>
 							</tr>";
+					}
+
 		  		}
 		  		echo "</tbody>
 		  			</table>
