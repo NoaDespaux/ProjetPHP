@@ -23,7 +23,7 @@
             include ("bd/Connexion.php");
             include ("Joueur.php");
             include ("Rencontre.php");
-            include ("Participer.php");
+            include ("participer.php");
 
             $num_license=$_GET['num_license'];
             $infosJoueur=Joueur::getInfosJoueur($num_license);

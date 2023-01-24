@@ -37,7 +37,7 @@
 		public static function getNbSelections($num_license){
 			try{
 				$bdd = new BDD();
-				$selectInfos = $bdd->linkpdo->prepare("SELECT count(*) FROM participer WHERE num_license = 1 ");
+				$selectInfos = $bdd->linkpdo->prepare("SELECT count(*) FROM participer WHERE num_license = ? ");
 		        $selectInfos->execute(array($num_license));
 		        $nb = $selectInfos->fetch();
 	    	} catch(Exception $e) {
@@ -50,7 +50,7 @@
 		public static function getNbMatchsJoues($num_license){
 			try{
 				$bdd = new BDD();
-				$selectInfos = $bdd->linkpdo->prepare("SELECT count(*) FROM participer p, rencontre r WHERE num_license = 1 and r.Id_match = p.Id_match and r.resultat_equipe <> 0 and r.resultat_adv <> 0 ");
+				$selectInfos = $bdd->linkpdo->prepare("SELECT count(*) FROM participer p, rencontre r WHERE num_license = ? and r.Id_match = p.Id_match and r.resultat_equipe <> 0 and r.resultat_adv <> 0 ");
 		        $selectInfos->execute(array($num_license));
 		        $nb = $selectInfos->fetch();
 	    	} catch(Exception $e) {
@@ -63,7 +63,7 @@
 		public static function getNbMatchsGagnes($num_license){
 			try{
 				$bdd = new BDD();
-				$selectInfos = $bdd->linkpdo->prepare("SELECT count(*) FROM participer p, rencontre r WHERE num_license = 1 and p.id_match = r.id_match and r.resultat_equipe > r.resultat_adv");
+				$selectInfos = $bdd->linkpdo->prepare("SELECT count(*) FROM participer p, rencontre r WHERE num_license = ? and p.id_match = r.id_match and r.resultat_equipe > r.resultat_adv");
 		        $selectInfos->execute(array($num_license));
 		        $nb = $selectInfos->fetch();
 	    	} catch(Exception $e) {
@@ -76,7 +76,7 @@
 		public static function getNbMatchsPerdus($num_license){
 			try{
 				$bdd = new BDD();
-				$selectInfos = $bdd->linkpdo->prepare("SELECT count(*) FROM participer p, rencontre r WHERE num_license = 1 and p.id_match = r.id_match and r.resultat_equipe < r.resultat_adv");
+				$selectInfos = $bdd->linkpdo->prepare("SELECT count(*) FROM participer p, rencontre r WHERE num_license = ? and p.id_match = r.id_match and r.resultat_equipe < r.resultat_adv");
 		        $selectInfos->execute(array($num_license));
 		        $nb = $selectInfos->fetch();
 	    	} catch(Exception $e) {
@@ -89,7 +89,7 @@
 		public static function getNbMatchsNuls($num_license){
 			try{
 				$bdd = new BDD();
-				$selectInfos = $bdd->linkpdo->prepare("SELECT count(*) FROM participer p, rencontre r WHERE num_license = 1 and p.id_match = r.id_match and r.resultat_equipe = r.resultat_adv and r.resultat_equipe <> 0");
+				$selectInfos = $bdd->linkpdo->prepare("SELECT count(*) FROM participer p, rencontre r WHERE num_license = ? and p.id_match = r.id_match and r.resultat_equipe = r.resultat_adv and r.resultat_equipe <> 0");
 		        $selectInfos->execute(array($num_license));
 		        $nb = $selectInfos->fetch();
 	    	} catch(Exception $e) {
@@ -102,14 +102,26 @@
 		public static function getMoyEval($num_license){
 			try{
 				$bdd = new BDD();
-				$selectInfos = $bdd->linkpdo->prepare("SELECT note FROM participer WHERE num_license = ?");
+				$selectInfos = $bdd->linkpdo->prepare("SELECT Note FROM participer WHERE num_license = ?");
 		        $selectInfos->execute(array($num_license));
-		        $nb = $selectInfos->fetchAll();
+		        $nb = $selectInfos->fetch();
 	    	} catch(Exception $e) {
 		        echo"erreur";
 		        die('Erreur:'.$e->getMessage());
 	    	}
 	    	return $nb;
+		}
+
+		public static function setPhoto($num_license, $photo){
+			try{
+				$bdd = new BDD();
+				$selectInfos = $bdd->linkpdo->prepare("UPDATE joueur SET photo = ? WHERE num_license = ?");
+		        $selectInfos->execute(array($photo, $num_license));
+		        return 1;
+	    	} catch(Exception $e) {
+		        echo"erreur";
+		        return -1;
+	    	}
 		}
 
 	}

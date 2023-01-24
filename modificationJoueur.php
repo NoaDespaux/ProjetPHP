@@ -39,6 +39,7 @@
             <input type="reset" name="annuler" value="Annuler">
             <input type="submit" name="valider" value="Valider">
         </form>
+        <a <?php echo'href="uploadphoto.php?num_license='.$num_license.'"' ?> method="get">Ajouter la photo
 
     </body>
 </html>
