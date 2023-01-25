@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Feuille de Match</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <header>
@@ -30,7 +30,7 @@
 		    $listeInscrits = Participer::getListeJoueursFromMatch($id_match);
 
 			if(!empty($listeInscrits)){
-				echo "<h1>Joueurs participant au match n°".$id_match."</h1>";
+				echo "<h1>Joueurs participant au match</h1>";
 				$infos=[];
 				$infosParticiper=[];
 				foreach($listeInscrits as $inscrit){
@@ -94,7 +94,7 @@
 					</form>";
 				}
 			} else {
-				echo "<h1>Joueurs à inscrire au match n°".$id_match."</h1>";
+				echo "<h1>Joueurs à inscrire au match</h1>";
 				echo "<form action=\"feuilleAction.php?id_match=".$id_match."\" method=\"post\">
 					<table>
 						<thead>

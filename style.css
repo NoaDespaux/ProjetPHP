@@ -15,11 +15,20 @@ tr:nth-child(even) {
 
 th {
   background-color: #4caf50;
-  color: white;
+}
+
+.menu a {
+color: white;
+text-decoration: none;
 }
 
 .btnmenu {
   color: white;
+  text-decoration: none;
+}
+
+#btndeco {
+float: right;
 }
 
 img {

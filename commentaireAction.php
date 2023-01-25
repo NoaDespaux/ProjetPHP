@@ -1,7 +1,7 @@
 <?php 
 	if($_COOKIE['logged_in'] == true){
 		include("bd/Connexion.php");
-		include("Participer.php");
+		include("participer.php");
 		include("Joueur.php");
 		include("Rencontre.php");
 

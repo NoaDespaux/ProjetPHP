@@ -16,6 +16,7 @@
     </header>
 
     <body>
+        <h1>Modification du joueur</h1>
     	<?php
             if($_COOKIE['logged_in'] == true){
                 include ("Joueur.php");

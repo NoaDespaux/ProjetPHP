@@ -25,15 +25,15 @@
 </header>
 
         <body>
-
-        <form action="ajoutMatchAction.php" method="post">
-            date_heure : <input type="text" name="date_heure_saisie"><br />
-            nom_adverse : <input type="text" name="nom_adverse_saisi"><br />
-            lieu : <input type="text" name="lieu_saisi"><br />
-            domicile : <input type="text" name="domicile_saisi"><br />
-            <input type="reset" name="annuler" value="Annuler">
-            <input type="submit" name="valider" value="Valider">
-        </form>
+            <h1>Création du match</h1>
+            <form action="ajoutMatchAction.php" method="post">
+                Date et heure du match : <input type="text" name="date_heure_saisie" placeholder="(AAAA-MM-JJ HH:MM:SS)"><br />
+                Nom de l'équipe adverse : <input type="text" name="nom_adverse_saisi"><br />
+                Lieu : <input type="text" name="lieu_saisi"><br />
+                Domicile : <input type="text" name="domicile_saisi" placeholder="oui / non"><br />
+                <input type="reset" name="annuler" value="Annuler">
+                <input type="submit" name="valider" value="Valider">
+            </form>
 
         </body>
     </html>

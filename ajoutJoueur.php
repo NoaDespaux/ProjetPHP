@@ -25,6 +25,7 @@
 </header>
 
         <body>
+            <h1>Création du joueur</h1>
             <form action="ajoutJoueurAction.php" method="post">
                 Nom : <input type="text" name="nom_saisi"><br />
                 Prenom : <input type="text" name="prenom_saisi"><br />

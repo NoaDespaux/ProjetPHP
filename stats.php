@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Statistiques</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <header>
@@ -17,7 +17,7 @@
 </header>
 
 <body>
-  
+    <h1>Statistiques sur le joueur</h1>
     <?php
         if($_COOKIE['logged_in'] == true){
             include ("bd/Connexion.php");
@@ -49,7 +49,7 @@
 
             echo 'Nombre de matchs gagnés : ' .$nbMatchsGagnes[0]. ' ('.$pMatchsGagnes.'%)<br>';
             echo 'Nombre de matchs perdus : ' .$nbMatchsPerdus[0]. ' ('.$pMatchsPerdus.'%)<br>';
-            echo 'Nombre de matchs nuls : ' .$nbMatchsNuls[0]. ' ('.$pMatchsNuls.'%)<br>';
+            echo 'Nombre de matchs nuls : ' .$nbMatchsNuls[0]. ' ('.$pMatchsNuls.'%)<br><br>';
 
             echo "<table>
                 <thead>
