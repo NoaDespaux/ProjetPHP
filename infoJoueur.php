@@ -27,7 +27,7 @@
 
 			//echo 'Photo : '.$infos[0]['photo'].'<br>';
 			echo '<img src='.$infos[0]['photo'].'><br>';
-			echo $infos[0]['nom'].'<br>';
+			echo $infos[0]['nom'].' ';
 			echo $infos[0]['prenom'].'<br>';
 			echo 'Date de naissance : '.$infos[0]['date_naissance'].'<br>';
 			echo 'Taille : '.$infos[0]['taille'].'cm<br>';
