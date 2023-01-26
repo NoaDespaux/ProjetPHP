@@ -95,8 +95,8 @@
 							<td><a href=\"suppressionMatch.php?id_match=".$item['id_match']."\">Supprimer</td>
 						</tr>";
 	  		}
-			echo 	"</tbody><br>
-					</table>
+			echo 	"</tbody>
+					</table><br>
 					 <div class=\"bouton\"><a href=\"ajoutMatch.php\">Ajouter un match</a></div>";
 
 	?>
