@@ -27,7 +27,8 @@
 
             $num_license=$_GET['num_license'];
             $infosJoueur=Joueur::getInfosJoueur($num_license);
-            $nbSelections=Joueur::getNbSelections($num_license);
+            $nbSelectionsT=Joueur::getNbSelectionsT($num_license);
+            $nbSelectionsR=Joueur::getNbSelectionsR($num_license);
             $allEval=Joueur::getMoyEval($num_license);
             $moyEval=0;
             $i=0;
@@ -56,7 +57,8 @@
                     <tr>
                         <th>Statut</th>
                         <th>Poste préféré</th>
-                        <th>Nombre de sélections</th>
+                        <th>Nombre de sélections (Titulaire)</th>
+                        <th>Nombre de sélections (Remplaçant)</th>
                         <th>Moyenne des évaluations</th>
                         <th>Pourcentage de matchs gagnés</th>
                     </tr>
@@ -65,7 +67,8 @@
                     <tr>
                         <td>".$infosJoueur[0]['statut']."</td>
                         <td>".$infosJoueur[0]['poste_prefere']."</td>
-                        <td>".$nbSelections[0]."</td>
+                        <td>".$nbSelectionsT[0]."</td>
+                        <td>".$nbSelectionsR[0]."</td>
                         <td>".$moyEval."</td>
                         <td>".$pMatchsGagnes."%</td>
                     </tr>

@@ -44,6 +44,7 @@
 								<th>Poids</th>
 								<th>Poste préféré</th>
 								<th></th>
+								<th></th>
 								<th>Commentaire</th>";
 								if($infosMatch[0]['resultat_equipe'] != null){
 									echo "<th>Note</th>
@@ -60,8 +61,13 @@
 							<td><a href=\"infoJoueur.php?num_license=".$item[0]['num_license']."\">" . $item[0]["prenom"] . "</td>
 							<td>" . $item[0]["taille"] . "cm</td>
 							<td>" . $item[0]["poids"] . "kg</td>
-							<td>" . $item[0]["poste_prefere"] . "</td>
-							<td> <img src=".$item[0]["photo"]."></td>
+							<td>" . $item[0]["poste_prefere"] . "</td>";
+							if ($infosParticiper[0]['titulaire'] == 1){
+								echo '<td>Titulaire</td>';
+							} elseif ($infosParticiper[0]['titulaire'] == 0) {
+								echo '<td>Remplaçant</td>';
+							}
+							echo "<td> <img src=".$item[0]["photo"]."></td>
 							<td>";
 							if($infosParticiper[0]['commentaire'] == null){
 								echo "<a href=commentaire.php?id_match=".$id_match."&num_license=".$item[0]["num_license"]."\" method=\"post\">Ajouter un commentaire</td>";
@@ -112,7 +118,12 @@
 				foreach ($listeJoueurs as $item) {
 					if($item['statut'] == "Actif"){
 		    		echo "<tr>
-		    					<td><input type=\"checkbox\" name=\"liste_titulaires[]\" value=\"".$item["num_license"]."\"></td>
+		    					<td>
+		    						<input type=\"radio\" name=\"joueur".$item['num_license']."\" value=\"titulaire\">
+		    						<label for=\"titulaires\">Titulaire</label>
+		    						<input type=\"radio\" name=\"joueur".$item['num_license']."\" value=\"remplacant\">
+		    						<label for=\"remplacants\">Remplaçant</label>
+		    					</td>
 								<td><a href=\"infoJoueur.php?num_license=".$item['num_license']."\">" . $item["nom"] . "</td>
 								<td><a href=\"infoJoueur.php?num_license=".$item['num_license']."\">" . $item["prenom"] . "</td>
 								<td>" . $item["taille"] . "cm</td>

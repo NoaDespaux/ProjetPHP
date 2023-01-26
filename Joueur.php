@@ -34,10 +34,23 @@
 	    	return $liste;
 		}
 
-		public static function getNbSelections($num_license){
+		public static function getNbSelectionsT($num_license){
 			try{
 				$bdd = new BDD();
-				$selectInfos = $bdd->linkpdo->prepare("SELECT count(*) FROM participer WHERE num_license = ? ");
+				$selectInfos = $bdd->linkpdo->prepare("SELECT count(*) FROM participer WHERE num_license = ? AND titulaire = 1");
+		        $selectInfos->execute(array($num_license));
+		        $nb = $selectInfos->fetch();
+	    	} catch(Exception $e) {
+		        echo"erreur";
+		        die('Erreur:'.$e->getMessage());
+	    	}
+	    	return $nb;
+		}
+
+		public static function getNbSelectionsR($num_license){
+			try{
+				$bdd = new BDD();
+				$selectInfos = $bdd->linkpdo->prepare("SELECT count(*) FROM participer WHERE num_license = ? AND titulaire = 0");
 		        $selectInfos->execute(array($num_license));
 		        $nb = $selectInfos->fetch();
 	    	} catch(Exception $e) {
